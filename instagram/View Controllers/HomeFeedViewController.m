@@ -7,10 +7,15 @@
 //
 
 #import "HomeFeedViewController.h"
+#import "LoginViewController.h"
 #import "Parse/Parse.h"
+#import "AppDelegate.h"
 
 @interface HomeFeedViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+@property (weak, nonatomic) IBOutlet UIButton *composeButton;
+@property (weak, nonatomic) IBOutlet UITableView *postsTableView;
+
 
 @end
 
@@ -23,8 +28,15 @@
 - (IBAction)didTapLogout:(id)sender {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         // PFUser.current() will now be nil
+        AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        appDelegate.window.rootViewController = loginViewController;
     }];
-    [self performSegueWithIdentifier:@"logoutToLoginSegue" sender:self];
+    //[self dismissViewControllerAnimated:true completion:nil];
+    
+
 }
 
 /*

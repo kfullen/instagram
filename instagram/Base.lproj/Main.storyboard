@@ -152,7 +152,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="1e3-VD-1H7"/>
                     </view>
-                    <navigationItem key="navigationItem" id="dKf-gb-pbZ"/>
+                    <navigationItem key="navigationItem" id="dKf-gb-pbZ">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="rpe-Pr-aMZ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MNP-0c-mxM">
+                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="didTapLogout:" destination="R1b-Lg-uKl" eventType="touchUpInside" id="W7C-7y-pLd"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="logoutButton" destination="MNP-0c-mxM" id="PhE-lt-L7T"/>
+                        <segue destination="r9V-AV-Hsf" kind="presentation" identifier="logoutToLoginSegue" id="uE1-qJ-J8z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lb9-8c-Npp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -177,4 +192,7 @@
             <point key="canvasLocation" x="3039.1999999999998" y="18.440779610194905"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="uE1-qJ-J8z"/>
+    </inferredMetricsTieBreakers>
 </document>

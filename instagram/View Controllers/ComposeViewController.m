@@ -11,9 +11,9 @@
 
 @interface ComposeViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *postImageView;
-@property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
+@property (weak, nonatomic) IBOutlet UITextField *captionTextField;
 
 @end
 
@@ -36,7 +36,7 @@
     CGSize size = CGSizeMake(100, 100);
     UIImage *resizedImage = [self resizeImage:self.passedImage withSize:size];
 
-    [Post postUserImage:resizedImage withCaption:self.captionLabel.text withCompletion:^(BOOL succeeded, NSError *_Nullable error){
+    [Post postUserImage:resizedImage withCaption:self.captionTextField.text withCompletion:^(BOOL succeeded, NSError *_Nullable error){
         
         if (succeeded){
             NSLog(@"User successfully posted");
@@ -45,6 +45,7 @@
              NSLog(@"%@", error.localizedDescription);
         }
     }];
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {

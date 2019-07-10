@@ -212,7 +212,7 @@
                         <outlet property="composeButton" destination="J3n-qp-DKH" id="OeJ-9Z-lsV"/>
                         <outlet property="logoutButton" destination="MNP-0c-mxM" id="PhE-lt-L7T"/>
                         <outlet property="postsTableView" destination="wRK-xq-df6" id="fXn-wv-0na"/>
-                        <segue destination="WdX-HU-ati" kind="presentation" id="P2Y-im-35P"/>
+                        <segue destination="WdX-HU-ati" kind="presentation" identifier="feedToComposeSegue" id="P2Y-im-35P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lb9-8c-Npp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -231,13 +231,13 @@
                                 <rect key="frame" x="16" y="78" width="134" height="138"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Write caption here..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0O0-mt-t2s">
-                                <rect key="frame" x="158" y="78" width="181" height="39"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write caption here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FeY-nM-hko">
+                                <rect key="frame" x="158" y="78" width="201" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mqS-Gy-2hr"/>
@@ -266,7 +266,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cancelButton" destination="l4v-Sw-iGl" id="2jE-fK-veG"/>
-                        <outlet property="captionLabel" destination="0O0-mt-t2s" id="CrH-cv-TLD"/>
+                        <outlet property="captionTextField" destination="FeY-nM-hko" id="LGB-km-bZZ"/>
                         <outlet property="postImageView" destination="IMH-Wq-41U" id="4P5-qq-5LV"/>
                         <outlet property="shareButton" destination="zHf-ET-j6r" id="ZLv-MG-F2l"/>
                     </connections>

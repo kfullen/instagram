@@ -21,4 +21,23 @@
     // Configure the view for the selected state
 }
 
+- (void)setPost:(Post *)post {
+    _post = post;
+    PFFileObject *image = post.image;
+    [image getDataInBackgroundWithBlock:^(NSData * data, NSError * error) {
+        if (!error) {
+            NSLog(@"Displaying photo");
+            UIImage *imageToLoad = [UIImage imageWithData:data];
+            [self.postImageView setImage:imageToLoad];
+        }
+        else {
+            NSLog(@"%@",error.localizedDescription);
+        }
+       
+    }];
+    //self.postImageView.file = post[@"image"];
+    //[self.postImageView loadInBackground];
+    self.captionLabel.text = post[@"caption"];
+}
+
 @end

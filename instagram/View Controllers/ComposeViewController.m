@@ -22,7 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSLog(@"Does this load???");
     self.postImageView.image = self.passedImage;
 }
 
@@ -37,7 +36,6 @@
     UIImage *resizedImage = [self resizeImage:self.passedImage withSize:size];
 
     [Post postUserImage:resizedImage withCaption:self.captionTextField.text withCompletion:^(BOOL succeeded, NSError *_Nullable error){
-        
         if (succeeded){
             NSLog(@"User successfully posted");
         }

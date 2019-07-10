@@ -14,12 +14,12 @@
 #import "Post.h"
 #import "ComposeViewController.h"
 
-@interface HomeFeedViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface HomeFeedViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @property (weak, nonatomic) IBOutlet UIButton *composeButton;
 @property (weak, nonatomic) IBOutlet UITableView *postsTableView;
-@property (strong,nonatomic) NSMutableArray *posts;
+@property (strong,nonatomic) NSArray *posts;
 @property (strong,nonatomic) UIImage *passedImage;
 
 @end
@@ -29,8 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //self.postsTableView.dataSource = self;
-    //self.postsTableView.delegate = self;
+    self.postsTableView.dataSource = self;
+    self.postsTableView.delegate = self;
     
     [self fetchPosts];
     
@@ -77,15 +77,39 @@
 }
 
 - (void)fetchPosts {
-
+    // construct query
+    PFQuery *postQuery = [PFQuery queryWithClassName:@"Post"];
+    [postQuery orderByDescending:@"createdAt"];
+    [postQuery includeKey:@"author"];
+    [postQuery includeKey:@"image"];
+    [postQuery includeKey:@"caption"];
+    postQuery.limit = 20;
+    
+    // fetch data asynchronously
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
+        if (posts) {
+            // do something with the data fetched
+            self.posts = posts;
+            NSLog(@"Fetched posts successfully");
+            //NSLog(@"%@",self.posts);
+            
+            // reload data
+            [self.postsTableView reloadData];
+        }
+        else {
+            // handle error
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
 }
-/*
+
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
-    PostCell *cell = [self.postsTableView dequeueReusableCellWithIdentifier:@"PostsCell"];
+    PostCell *cell = [self.postsTableView dequeueReusableCellWithIdentifier:@"PostCell"];
     Post *post = self.posts[indexPath.row];
+    NSLog(@"post: %@",post);
     cell.post = post;
-    cell.postImageView = post.image;
+    
     
     return cell;
 }
@@ -93,7 +117,7 @@
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.posts.count;
 }
-*/
+
 
 #pragma mark - Navigation
 

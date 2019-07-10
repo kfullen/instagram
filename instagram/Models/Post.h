@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *userID;
 @property (nonatomic, strong) NSString *caption;
 
-@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) PFFileObject *image;
 @property (nonatomic, strong) PFUser *author;
 
 + (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion;

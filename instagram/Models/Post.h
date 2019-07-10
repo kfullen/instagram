@@ -6,6 +6,7 @@
 //  Copyright © 2019 kfullen. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -16,6 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *caption;
 
 @property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) PFUser *author;
+
++ (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

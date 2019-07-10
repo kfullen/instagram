@@ -12,13 +12,15 @@
 #import "AppDelegate.h"
 #import "PostCell.h"
 #import "Post.h"
+#import "ComposeViewController.h"
 
 @interface HomeFeedViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @property (weak, nonatomic) IBOutlet UIButton *composeButton;
 @property (weak, nonatomic) IBOutlet UITableView *postsTableView;
 @property (strong,nonatomic) NSMutableArray *posts;
-
+@property (strong,nonatomic) UIImage *passedImage;
 
 @end
 
@@ -29,6 +31,8 @@
     // Do any additional setup after loading the view.
     //self.postsTableView.dataSource = self;
     //self.postsTableView.delegate = self;
+    
+    [self fetchPosts];
     
 }
 - (IBAction)didTapLogout:(id)sender {
@@ -64,6 +68,8 @@
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     
     // Do something with the images (based on your use case)
+    self.passedImage = originalImage;
+    NSLog(@"Image passed!");
     
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -73,30 +79,32 @@
 
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-/*
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     PostCell *cell = [self.postsTableView dequeueReusableCellWithIdentifier:@"PostsCell"];
+    Post *post = self.posts[indexPath.row];
     cell.post = post;
+    cell.postImageView = post.image;
     
-    
-    
-    
-    
-    
-    return 8;
+    return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.posts.count;
 }
 */
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    UINavigationController *navigationController = [segue destinationViewController];
+    ComposeViewController *composeViewController = (ComposeViewController*)navigationController.topViewController;
+    
+    // Pass the selected object to the new view controller.
+    composeViewController.passedImage = self.passedImage;
+    NSLog(@"segues");
+}
+
 @end

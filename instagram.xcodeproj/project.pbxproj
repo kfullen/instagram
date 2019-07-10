@@ -13,6 +13,7 @@
 		84AA41E322D41AB20092586C /* HomeFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA41E222D41AB20092586C /* HomeFeedViewController.m */; };
 		84D36F5B22D525F4009B2E03 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D36F5A22D525F4009B2E03 /* PostCell.m */; };
 		84D36F6222D54F45009B2E03 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D36F6122D54F45009B2E03 /* Post.m */; };
+		84D36F6522D56B6F009B2E03 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D36F6422D56B6F009B2E03 /* ComposeViewController.m */; };
 		84FF2F6222D3FB730095D895 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FF2F6122D3FB730095D895 /* AppDelegate.m */; };
 		84FF2F6822D3FB730095D895 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FF2F6622D3FB730095D895 /* Main.storyboard */; };
 		84FF2F6A22D3FB730095D895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84FF2F6922D3FB730095D895 /* Assets.xcassets */; };
@@ -59,6 +60,8 @@
 		84D36F5A22D525F4009B2E03 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		84D36F6022D54F45009B2E03 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		84D36F6122D54F45009B2E03 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		84D36F6322D56B6F009B2E03 /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
+		84D36F6422D56B6F009B2E03 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
 		84FF2F5D22D3FB730095D895 /* instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FF2F6022D3FB730095D895 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84FF2F6122D3FB730095D895 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -124,6 +127,8 @@
 				84AA41DF22D40D300092586C /* LoginViewController.m */,
 				84AA41E122D41AB20092586C /* HomeFeedViewController.h */,
 				84AA41E222D41AB20092586C /* HomeFeedViewController.m */,
+				84D36F6322D56B6F009B2E03 /* ComposeViewController.h */,
+				84D36F6422D56B6F009B2E03 /* ComposeViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -443,6 +448,7 @@
 				84AA41DD22D40A480092586C /* RegisterViewController.m in Sources */,
 				84D36F5B22D525F4009B2E03 /* PostCell.m in Sources */,
 				84D36F6222D54F45009B2E03 /* Post.m in Sources */,
+				84D36F6522D56B6F009B2E03 /* ComposeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

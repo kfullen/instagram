@@ -32,7 +32,12 @@
     self.postsTableView.dataSource = self;
     self.postsTableView.delegate = self;
     
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    
     [self fetchPosts];
+    
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.postsTableView insertSubview:refreshControl atIndex:0];
     
 }
 - (IBAction)didTapLogout:(id)sender {
@@ -91,7 +96,6 @@
             // do something with the data fetched
             self.posts = posts;
             NSLog(@"Fetched posts successfully");
-            //NSLog(@"%@",self.posts);
             
             // reload data
             [self.postsTableView reloadData];
@@ -118,6 +122,32 @@
     return self.posts.count;
 }
 
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+    // construct query
+    PFQuery *postQuery = [PFQuery queryWithClassName:@"Post"];
+    [postQuery orderByDescending:@"createdAt"];
+    [postQuery includeKey:@"author"];
+    [postQuery includeKey:@"image"];
+    [postQuery includeKey:@"caption"];
+    postQuery.limit = 20;
+    
+    // fetch data asynchronously
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
+        if (posts) {
+            // do something with the data fetched
+            self.posts = posts;
+            NSLog(@"Refreshed posts successfully");
+            [refreshControl endRefreshing];
+            
+            // reload data
+            [self.postsTableView reloadData];
+        }
+        else {
+            // handle error
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
 
 #pragma mark - Navigation
 

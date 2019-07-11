@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *postID;
 @property (nonatomic, strong) NSString *userID;
 @property (nonatomic, strong) NSString *caption;
+@property (nonatomic, strong) NSString *likes;
 
 @property (nonatomic, strong) PFFileObject *image;
 @property (nonatomic, strong) PFUser *author;

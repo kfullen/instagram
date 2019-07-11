@@ -32,17 +32,18 @@
 
 
 - (IBAction)didTapShare:(id)sender {
-    CGSize size = CGSizeMake(500, 500);
+    CGSize size = CGSizeMake(400, 400);
     UIImage *resizedImage = [self resizeImage:self.passedImage withSize:size];
-
-    [Post postUserImage:resizedImage withCaption:self.captionTextField.text withCompletion:^(BOOL succeeded, NSError *_Nullable error){
-        if (succeeded){
-            NSLog(@"User successfully posted");
-        }
-        else {
-             NSLog(@"%@", error.localizedDescription);
-        }
-    }];
+    for (int i=0; i<20; i++) {
+        [Post postUserImage:resizedImage withCaption:self.captionTextField.text withCompletion:^(BOOL succeeded, NSError *_Nullable error){
+            if (succeeded){
+                NSLog(@"User successfully posted");
+            }
+            else {
+                 NSLog(@"%@", error.localizedDescription);
+            }
+        }];
+    }
     [self dismissViewControllerAnimated:true completion:nil];
 }
 

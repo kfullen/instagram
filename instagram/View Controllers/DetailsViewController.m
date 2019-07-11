@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *detailsImageView;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 
 @end
 
@@ -37,6 +38,7 @@
     
     // set other views
     self.captionLabel.text = self.post.caption;
+    self.usernameLabel.text = self.post.author.username;
     
     NSDate *createdAt = self.post.createdAt;
     NSString *timestamp = [createdAt timeAgoSinceNow];

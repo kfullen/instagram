@@ -15,13 +15,14 @@
 #import "ComposeViewController.h"
 #import "DetailsViewController.h"
 
-@interface HomeFeedViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface HomeFeedViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @property (weak, nonatomic) IBOutlet UIButton *composeButton;
 @property (weak, nonatomic) IBOutlet UITableView *postsTableView;
-@property (strong,nonatomic) NSArray *posts;
+@property (strong,nonatomic) NSMutableArray *posts;
 @property (strong,nonatomic) UIImage *passedImage;
+@property (assign, nonatomic) BOOL isMoreDataLoading;
 
 @end
 
@@ -74,7 +75,7 @@
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     
     // Do something with the images (based on your use case)
-    self.passedImage = originalImage;
+    self.passedImage = editedImage;
     NSLog(@"Image passed!");
     
     // Dismiss UIImagePickerController to go back to your original view controller
@@ -89,6 +90,7 @@
     [postQuery includeKey:@"author"];
     [postQuery includeKey:@"image"];
     [postQuery includeKey:@"caption"];
+    [postQuery includeKey:@"likes"];
     postQuery.limit = 20;
     
     // fetch data asynchronously
@@ -130,6 +132,7 @@
     [postQuery includeKey:@"author"];
     [postQuery includeKey:@"image"];
     [postQuery includeKey:@"caption"];
+    [postQuery includeKey:@"likes"];
     postQuery.limit = 20;
     
     // fetch data asynchronously
@@ -141,6 +144,54 @@
             [refreshControl endRefreshing];
             
             // reload data
+            [self.postsTableView reloadData];
+        }
+        else {
+            // handle error
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    // Handle scroll behavior here
+    if(!self.isMoreDataLoading){
+        // Calculate the position of one screen length before the bottom of the results
+        int scrollViewContentHeight = self.postsTableView.contentSize.height;
+        int scrollOffsetThreshold = scrollViewContentHeight - self.postsTableView.bounds.size.height;
+        
+        // When the user has scrolled past the threshold, start requesting
+        if(scrollView.contentOffset.y > scrollOffsetThreshold && self.postsTableView.isDragging) {
+            self.isMoreDataLoading = true;
+            
+            // ... Code to load more results ...
+            [self loadMoreData];
+        }
+    }
+}
+
+-(void)loadMoreData{
+    // construct query
+    PFQuery *postQuery = [PFQuery queryWithClassName:@"Post"];
+    [postQuery orderByDescending:@"createdAt"];
+    [postQuery includeKey:@"author"];
+    [postQuery includeKey:@"image"];
+    [postQuery includeKey:@"caption"];
+    [postQuery includeKey:@"likes"];
+    postQuery.skip = self.posts.count;
+    postQuery.limit = 20;
+    
+    // fetch data asynchronously
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
+        if (posts) {
+            // Update flag
+            self.isMoreDataLoading = false;
+            
+            // ... Use the new data to update the data source ...
+            [self.posts addObjectsFromArray:posts];
+            NSLog(@"Loaded more posts successfully");
+            
+            // Reload the tableView now that there is new data
             [self.postsTableView reloadData];
         }
         else {

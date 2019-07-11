@@ -27,6 +27,9 @@
     newPost.author = [PFUser currentUser];
     newPost.caption = caption;
     
+    int likes = 0;
+    newPost.likes = [NSString stringWithFormat:@"%d likes",likes];
+    
     [newPost saveInBackgroundWithBlock: completion];
 }
 

@@ -38,6 +38,9 @@
     
     self.captionLabel.text = post.caption;
     self.usernameLabel.text = post.author.username;
+    self.likesLabel.text = post.likes;
+    self.smallUsernameLabel.text = post.author.username;
 }
+
 
 @end

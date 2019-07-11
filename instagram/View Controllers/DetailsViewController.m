@@ -39,7 +39,7 @@
     self.captionLabel.text = self.post.caption;
     
     NSDate *createdAt = self.post.createdAt;
-    NSString *timestamp = [createdAt shortTimeAgoSinceNow];
+    NSString *timestamp = [createdAt timeAgoSinceNow];
     self.timestampLabel.text = timestamp;
     
     

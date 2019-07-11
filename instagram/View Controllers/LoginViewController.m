@@ -24,6 +24,9 @@
     // Do any additional setup after loading the view.
     self.usernameField.delegate = self;
     self.passwordField.delegate = self;
+    
+    self.loginButton.layer.cornerRadius = 10;
+
 }
 
 - (void)loginUser {

@@ -26,6 +26,9 @@
     self.usernameField.delegate = self;
     self.emailField.delegate = self;
     self.passwordField.delegate = self;
+    
+    self.registerButton.layer.cornerRadius = 10;
+
 }
 
 - (void)registerUser {

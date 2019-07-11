@@ -161,14 +161,15 @@
     
         // Pass the selected object to the new view controller.
         composeViewController.passedImage = self.passedImage;
-        NSLog(@"compose segue");
     }
     else {
+        // Get the new view controller using [segue destinationViewController].
         UITableViewCell *tappedCell = sender; //grabs id of cell
         NSIndexPath *indexPath = [self.postsTableView indexPathForCell:tappedCell]; // grabs index of cell in table view
         Post *post = self.posts[indexPath.row]; //grabs post from array of posts using index
-        
         DetailsViewController *detailsController = [segue destinationViewController];
+        
+        // Pass the selected object to the new view controller.
         detailsController.post = post;
     }
 }

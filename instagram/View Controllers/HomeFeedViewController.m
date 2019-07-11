@@ -13,6 +13,7 @@
 #import "PostCell.h"
 #import "Post.h"
 #import "ComposeViewController.h"
+#import "DetailsViewController.h"
 
 @interface HomeFeedViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -153,13 +154,23 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"feedToComposeSegue"]) {
     // Get the new view controller using [segue destinationViewController].
-    UINavigationController *navigationController = [segue destinationViewController];
-    ComposeViewController *composeViewController = (ComposeViewController*)navigationController.topViewController;
+        UINavigationController *navigationController = [segue destinationViewController];
+        ComposeViewController *composeViewController = (ComposeViewController*)navigationController.topViewController;
     
-    // Pass the selected object to the new view controller.
-    composeViewController.passedImage = self.passedImage;
-    NSLog(@"segues");
+        // Pass the selected object to the new view controller.
+        composeViewController.passedImage = self.passedImage;
+        NSLog(@"compose segue");
+    }
+    else {
+        UITableViewCell *tappedCell = sender; //grabs id of cell
+        NSIndexPath *indexPath = [self.postsTableView indexPathForCell:tappedCell]; // grabs index of cell in table view
+        Post *post = self.posts[indexPath.row]; //grabs post from array of posts using index
+        
+        DetailsViewController *detailsController = [segue destinationViewController];
+        detailsController.post = post;
+    }
 }
 
 @end

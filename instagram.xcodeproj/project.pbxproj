@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C5DF4F3B31B875F5374C745 /* Pods_instagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A3AEC8E36EFE09F51061EB /* Pods_instagramTests.framework */; };
+		848EA3AA22D6A7D400F522B4 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848EA3A922D6A7D400F522B4 /* DetailsViewController.m */; };
 		84AA41DD22D40A480092586C /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA41DC22D40A480092586C /* RegisterViewController.m */; };
 		84AA41E022D40D300092586C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA41DF22D40D300092586C /* LoginViewController.m */; };
 		84AA41E322D41AB20092586C /* HomeFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA41E222D41AB20092586C /* HomeFeedViewController.m */; };
@@ -50,6 +51,8 @@
 		419303BEF9454812BB5B1CCB /* Pods-instagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagramTests.debug.xcconfig"; path = "Target Support Files/Pods-instagramTests/Pods-instagramTests.debug.xcconfig"; sourceTree = "<group>"; };
 		582A3CD368743484BD90AA77 /* Pods_instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62A3AEC8E36EFE09F51061EB /* Pods_instagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_instagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		848EA3A822D6A7D400F522B4 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		848EA3A922D6A7D400F522B4 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		84AA41DB22D40A480092586C /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		84AA41DC22D40A480092586C /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		84AA41DE22D40D300092586C /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -129,6 +132,8 @@
 				84AA41E222D41AB20092586C /* HomeFeedViewController.m */,
 				84D36F6322D56B6F009B2E03 /* ComposeViewController.h */,
 				84D36F6422D56B6F009B2E03 /* ComposeViewController.m */,
+				848EA3A822D6A7D400F522B4 /* DetailsViewController.h */,
+				848EA3A922D6A7D400F522B4 /* DetailsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -447,6 +452,7 @@
 				84FF2F6222D3FB730095D895 /* AppDelegate.m in Sources */,
 				84AA41DD22D40A480092586C /* RegisterViewController.m in Sources */,
 				84D36F5B22D525F4009B2E03 /* PostCell.m in Sources */,
+				848EA3AA22D6A7D400F522B4 /* DetailsViewController.m in Sources */,
 				84D36F6222D54F45009B2E03 /* Post.m in Sources */,
 				84D36F6522D56B6F009B2E03 /* ComposeViewController.m in Sources */,
 			);

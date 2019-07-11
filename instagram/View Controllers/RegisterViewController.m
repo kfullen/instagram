@@ -27,7 +27,7 @@
     self.emailField.delegate = self;
     self.passwordField.delegate = self;
     
-    self.registerButton.layer.cornerRadius = 10;
+    self.registerButton.layer.cornerRadius = 10; //makes button curved
 
 }
 

@@ -89,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="73.313343328335833"/>
+            <point key="canvasLocation" x="857" y="-419"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="pRX-Ju-bUi">
@@ -160,12 +160,12 @@
                         <outlet property="passwordField" destination="0nw-ek-cg3" id="AFf-se-4vh"/>
                         <outlet property="registerButton" destination="aCb-RZ-3br" id="Z5P-JJ-RcH"/>
                         <outlet property="usernameField" destination="ZMo-8v-Vwi" id="95W-5M-gMB"/>
-                        <segue destination="flw-sI-0Rl" kind="presentation" identifier="loginToHomeFeedSegue" id="8Ol-jI-rj4"/>
+                        <segue destination="p5b-2S-UOb" kind="presentation" identifier="loginToFeedSegue" id="fNm-V5-Pb0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EX8-Ah-Zfk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1511.2" y="79.610194902548727"/>
+            <point key="canvasLocation" x="2334" y="-688"/>
         </scene>
         <!--Home Feed-->
         <scene sceneID="OI7-tw-KTx">
@@ -251,7 +251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lb9-8c-Npp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3978.4000000000001" y="18.440779610194905"/>
+            <point key="canvasLocation" x="3039" y="916"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="VgM-YN-ZlP">
@@ -307,12 +307,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zmj-B9-MXU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6332" y="10.344827586206897"/>
+            <point key="canvasLocation" x="4343" y="1666"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="Sh5-g1-UcF">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" id="p5b-2S-UOb" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bpQ-Pb-0OX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="flw-sI-0Rl" kind="relationship" relationship="viewControllers" id="TMH-5J-yZc"/>
+                        <segue destination="egn-YL-V2M" kind="relationship" relationship="viewControllers" id="aOZ-ga-LVB"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Cr-Od-t1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4575" y="-799"/>
+        </scene>
+        <!--Home Feed-->
         <scene sceneID="OH5-LB-RqM">
             <objects>
                 <navigationController storyboardIdentifier="HomeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="flw-sI-0Rl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home Feed" image="feed_tab" id="8xD-bo-Eon"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6eY-ny-YoB">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -326,6 +345,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1oB-lg-vhy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3039.1999999999998" y="18.440779610194905"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="7Qb-Ub-E4P">
+            <objects>
+                <viewController id="4le-06-OHT" customClass="ProfileViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ALI-PQ-DO8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="IMS-7G-k88"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile" id="OIr-Ah-klT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sg7-5Y-ZxG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5726" y="816"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zh9-iu-y34">
@@ -343,7 +378,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CxI-QZ-pBJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5392.8000000000002" y="10.344827586206897"/>
+            <point key="canvasLocation" x="4343" y="915"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="FDH-9X-bxP">
@@ -389,12 +424,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AsU-aT-7Ah" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5005.6000000000004" y="832.53373313343332"/>
+            <point key="canvasLocation" x="3039" y="1666"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="sAd-RX-aWb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="egn-YL-V2M" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile_tab" id="O7G-Ee-M0x"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jJ4-cM-rLF">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4le-06-OHT" kind="relationship" relationship="rootViewController" id="qV0-5R-VVC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tu6-bg-o5Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5725.6000000000004" y="29.23538230884558"/>
         </scene>
     </scenes>
     <resources>
+        <image name="feed_tab" width="25" height="25"/>
         <image name="insta-logo" width="1455" height="1454"/>
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="instagram-name" width="600" height="280"/>
+        <image name="profile_tab" width="25" height="25"/>
     </resources>
 </document>

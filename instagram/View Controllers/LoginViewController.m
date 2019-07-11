@@ -25,7 +25,7 @@
     self.usernameField.delegate = self;
     self.passwordField.delegate = self;
     
-    self.loginButton.layer.cornerRadius = 10;
+    self.loginButton.layer.cornerRadius = 10; //makes button curved
 
 }
 
@@ -40,7 +40,7 @@
             NSLog(@"User logged in successfully");
             
             // display view controller that needs to shown after successful login
-            [self performSegueWithIdentifier:@"loginToHomeFeedSegue" sender:self];
+            [self performSegueWithIdentifier:@"loginToFeedSegue" sender:self];
         }
     }];
 }

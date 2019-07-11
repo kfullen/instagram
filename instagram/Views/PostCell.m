@@ -35,9 +35,9 @@
         }
        
     }];
-    //self.postImageView.file = post[@"image"];
-    //[self.postImageView loadInBackground];
-    self.captionLabel.text = post[@"caption"];
+    
+    self.captionLabel.text = post.caption;
+    self.usernameLabel.text = post.author.username;
 }
 
 @end

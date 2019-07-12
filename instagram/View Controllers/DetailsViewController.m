@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *likesLabel;
 
 @end
 
@@ -39,11 +40,15 @@
     // set other views
     self.captionLabel.text = self.post.caption;
     self.usernameLabel.text = self.post.author.username;
+    self.likesLabel.text = self.post.likes;
     
     NSDate *createdAt = self.post.createdAt;
     NSString *timestamp = [createdAt timeAgoSinceNow];
     self.timestampLabel.text = timestamp;
     
+    [self.timestampLabel sizeToFit];
+    [self.captionLabel sizeToFit];
+    [self.usernameLabel sizeToFit];
     
 }
 

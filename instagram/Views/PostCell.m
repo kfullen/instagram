@@ -7,6 +7,7 @@
 //
 
 #import "PostCell.h"
+#import "DateTools.h"
 
 @implementation PostCell
 
@@ -40,6 +41,10 @@
     self.usernameLabel.text = post.author.username;
     self.likesLabel.text = post.likes;
     self.smallUsernameLabel.text = post.author.username;
+    
+    NSDate *createdAt = self.post.createdAt;
+    NSString *timestamp = [createdAt timeAgoSinceNow];
+    self.timestampLabel.text = timestamp;
 }
 
 
